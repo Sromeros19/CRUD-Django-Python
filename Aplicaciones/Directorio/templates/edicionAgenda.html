@@ -1,0 +1,81 @@
+{% extends "./base.html" %} {% block title %} Gestión de Cursos {% endblock %}
+{% block body %}
+<div class="row">
+  <div class="col-md-4 offset-md-4">
+    <h2>Edición de Agenda</h2>
+    <div class="card">
+      <div class="card-body">
+        <form action="/editarAgenda/" method="POST">
+          {% csrf_token %} {% csrf_token %}
+          <div class="form-group">
+            <input
+              type="text"
+              id="txtCodigo"
+              name="txtCodigo"
+              value="{{agenda.codigo}}"
+              class="form-control"
+              placeholder="Código"
+              minlength="2"
+              maxlength="6"
+              readonly
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              id="txtNombre"
+              name="txtNombre"
+              value="{{agenda.nombre}}"
+              class="form-control"
+              placeholder="Nombre"
+              maxlength="50"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              id="txtApellido"
+              name="txtApellido"
+              value="{{agenda.apellido}}"
+              class="form-control"
+              placeholder="Apellido"
+              maxlength="50"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              id="numtelefono"
+              name="numtelefono"
+              value="{{agenda.telefono}}"
+              class="form-control"
+              placeholder="Telefono"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              id="txtemail"
+              name="txtemail"
+              value="{{agenda.Email}}"
+              class="form-control"
+              placeholder="Email"
+              maxlength="50"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-success btn-block text-white">
+              Guardar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
